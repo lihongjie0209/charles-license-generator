@@ -13,7 +13,7 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #f5f7fa;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -23,152 +23,168 @@
 
     .container {
       background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       max-width: 600px;
       width: 100%;
-      padding: 40px;
-      animation: fadeIn 0.5s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      overflow: hidden;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      padding: 32px 40px 24px;
+      border-bottom: 1px solid #e5e7eb;
     }
 
     .header h1 {
-      color: #667eea;
-      font-size: 32px;
-      font-weight: 700;
+      color: #111827;
+      font-size: 28px;
+      font-weight: 600;
       margin-bottom: 8px;
     }
 
     .header p {
-      color: #666;
+      color: #6b7280;
       font-size: 14px;
     }
 
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 16px 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      color: #6b7280;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab:hover {
+      color: #111827;
+      background: #f9fafb;
+    }
+
+    .tab.active {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 32px 40px;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .form-group {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     label {
       display: block;
-      color: #333;
-      font-weight: 600;
+      color: #374151;
+      font-weight: 500;
       margin-bottom: 8px;
       font-size: 14px;
     }
 
     input[type="text"] {
       width: 100%;
-      padding: 12px 16px;
-      border: 2px solid #e0e0e0;
-      border-radius: 10px;
-      font-size: 16px;
-      transition: all 0.3s ease;
+      padding: 10px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: all 0.2s;
       outline: none;
     }
 
     input[type="text"]:focus {
-      border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .button-group {
       display: flex;
       gap: 12px;
-      margin-bottom: 24px;
+      margin-top: 24px;
     }
 
     button {
-      flex: 1;
-      padding: 14px 24px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 600;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s;
       outline: none;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      flex: 1;
+      background: #2563eb;
       color: white;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+      background: #1d4ed8;
     }
 
     .btn-primary:active {
-      transform: translateY(0);
+      transform: scale(0.98);
     }
 
     .btn-secondary {
-      background: #f5f5f5;
-      color: #333;
+      background: #f3f4f6;
+      color: #374151;
     }
 
     .btn-secondary:hover {
-      background: #e0e0e0;
+      background: #e5e7eb;
     }
 
     .result {
-      background: #f8f9ff;
-      border: 2px solid #667eea;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 24px;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 20px;
       display: none;
     }
 
     .result.show {
       display: block;
-      animation: slideIn 0.3s ease-out;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     .result-label {
-      color: #667eea;
-      font-weight: 600;
-      font-size: 14px;
+      color: #0369a1;
+      font-weight: 500;
+      font-size: 13px;
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
 
     .result-value {
       background: white;
-      padding: 12px 16px;
-      border-radius: 8px;
+      padding: 12px 14px;
+      border-radius: 6px;
       font-family: 'Courier New', monospace;
-      font-size: 18px;
-      color: #333;
+      font-size: 16px;
+      color: #111827;
       word-break: break-all;
       display: flex;
       align-items: center;
@@ -178,84 +194,65 @@
 
     .copy-btn {
       padding: 6px 12px;
-      background: #667eea;
+      background: #2563eb;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 4px;
       font-size: 12px;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.2s ease;
+      transition: all 0.2s;
     }
 
     .copy-btn:hover {
-      background: #5568d3;
+      background: #1d4ed8;
     }
 
     .copy-btn.copied {
-      background: #10b981;
-    }
-
-    .info {
-      margin-top: 24px;
-      padding: 16px;
-      background: #fff3cd;
-      border-radius: 10px;
-      font-size: 13px;
-      color: #856404;
-      line-height: 1.6;
-    }
-
-    .info strong {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .verify-section {
-      margin-top: 40px;
-      padding-top: 40px;
-      border-top: 2px solid #f0f0f0;
-    }
-
-    .verify-section h2 {
-      color: #333;
-      font-size: 24px;
-      margin-bottom: 20px;
+      background: #059669;
     }
 
     .verify-result {
-      padding: 16px;
-      border-radius: 10px;
-      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 6px;
+      margin-top: 20px;
       display: none;
-      font-weight: 600;
-      text-align: center;
+      font-weight: 500;
+      font-size: 14px;
     }
 
     .verify-result.show {
       display: block;
-      animation: slideIn 0.3s ease-out;
     }
 
     .verify-result.success {
       background: #d1fae5;
       color: #065f46;
-      border: 2px solid #10b981;
+      border: 1px solid #6ee7b7;
     }
 
     .verify-result.error {
       background: #fee2e2;
       color: #991b1b;
-      border: 2px solid #ef4444;
+      border: 1px solid #fca5a5;
     }
 
     @media (max-width: 640px) {
-      .container {
-        padding: 24px;
+      .header {
+        padding: 24px 20px 16px;
       }
 
       .header h1 {
-        font-size: 24px;
+        font-size: 22px;
+      }
+
+      .tab {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+
+      .tab-content {
+        padding: 24px 20px;
       }
 
       .button-group {
@@ -264,6 +261,12 @@
 
       .result-value {
         font-size: 14px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .copy-btn {
+        width: 100%;
       }
     }
   </style>
@@ -275,37 +278,32 @@
       <p>Generate and verify license keys for Charles Proxy</p>
     </div>
 
-    <div class="form-group">
-      <label for="nameInput">Registered Name</label>
-      <input type="text" id="nameInput" placeholder="Enter your name..." autocomplete="off">
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('generate')">生成 Generate</button>
+      <button class="tab" onclick="switchTab('verify')">验证 Verify</button>
     </div>
 
-    <div class="button-group">
-      <button class="btn-primary" onclick="generateKey()">Generate License Key</button>
-      <button class="btn-secondary" onclick="clearForm()">Clear</button>
-    </div>
-
-    <div class="result" id="result">
-      <div class="result-label">
-        <span>Generated License Key:</span>
+    <div id="generateTab" class="tab-content active">
+      <div class="form-group">
+        <label for="nameInput">Registered Name</label>
+        <input type="text" id="nameInput" placeholder="Enter your name..." autocomplete="off">
       </div>
-      <div class="result-value">
-        <span id="licenseKey"></span>
-        <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">Copy</button>
+
+      <div class="button-group">
+        <button class="btn-primary" onclick="generateKey()">Generate License Key</button>
+        <button class="btn-secondary" onclick="clearGenerate()">Clear</button>
+      </div>
+
+      <div class="result" id="result">
+        <div class="result-label">Generated License Key:</div>
+        <div class="result-value">
+          <span id="licenseKey"></span>
+          <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">Copy</button>
+        </div>
       </div>
     </div>
 
-    <div class="info">
-      <strong>ℹ️ Usage Instructions:</strong>
-      1. Enter your name in the field above<br>
-      2. Click "Generate License Key" to create a new key<br>
-      3. Copy the generated key and use it to register Charles Proxy<br>
-      4. Each generation creates a unique valid key
-    </div>
-
-    <div class="verify-section">
-      <h2>🔍 Verify License Key</h2>
-      
+    <div id="verifyTab" class="tab-content">
       <div class="form-group">
         <label for="verifyName">Name</label>
         <input type="text" id="verifyName" placeholder="Enter name to verify..." autocomplete="off">
@@ -316,7 +314,10 @@
         <input type="text" id="verifyKey" placeholder="Enter license key..." autocomplete="off" maxlength="18">
       </div>
 
-      <button class="btn-primary" onclick="verifyKey()" style="width: 100%;">Verify</button>
+      <div class="button-group">
+        <button class="btn-primary" onclick="verifyKey()">Verify License Key</button>
+        <button class="btn-secondary" onclick="clearVerify()">Clear</button>
+      </div>
 
       <div class="verify-result" id="verifyResult"></div>
     </div>
@@ -324,6 +325,20 @@
 
   <script src="./bundle.js"></script>
   <script>
+    window.switchTab = function(tab) {
+      // Update tab buttons
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Update tab content
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      if (tab === 'generate') {
+        document.getElementById('generateTab').classList.add('active');
+      } else {
+        document.getElementById('verifyTab').classList.add('active');
+      }
+    };
+
     window.generateKey = function() {
       const name = document.getElementById('nameInput').value.trim();
       
@@ -343,9 +358,12 @@
       }
     };
 
-    window.clearForm = function() {
+    window.clearGenerate = function() {
       document.getElementById('nameInput').value = '';
       document.getElementById('result').classList.remove('show');
+    };
+
+    window.clearVerify = function() {
       document.getElementById('verifyName').value = '';
       document.getElementById('verifyKey').value = '';
       document.getElementById('verifyResult').classList.remove('show');
@@ -396,17 +414,13 @@
       }
     };
 
-    // Allow Enter key to trigger generation
+    // Allow Enter key to trigger actions
     document.getElementById('nameInput').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        window.generateKey();
-      }
+      if (e.key === 'Enter') window.generateKey();
     });
 
     document.getElementById('verifyKey').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        window.verifyKey();
-      }
+      if (e.key === 'Enter') window.verifyKey();
     });
   </script>
 </body>

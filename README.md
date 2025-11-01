@@ -2,6 +2,12 @@
 
 A TypeScript implementation of Charles Proxy license key generation and verification system with a modern web interface.
 
+## 🌐 在线演示 / Live Demo
+
+**[https://lihongjie0209.github.io/charles-license-generator/](https://lihongjie0209.github.io/charles-license-generator/)**
+
+点击链接即可在线使用，无需安装任何依赖！
+
 ## 🚀 Features
 
 - ✅ **License Key Generation**: Generate valid Charles Proxy license keys for any name

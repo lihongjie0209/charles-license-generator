@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charles License Key Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 100%;
+      padding: 40px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      color: #667eea;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    input[type="text"]:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    button {
+      flex: 1;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+
+    .result {
+      background: #f8f9ff;
+      border: 2px solid #667eea;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 24px;
+      display: none;
+    }
+
+    .result.show {
+      display: block;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-label {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .result-value {
+      background: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      color: #333;
+      word-break: break-all;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .copy-btn {
+      padding: 6px 12px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: #5568d3;
+    }
+
+    .copy-btn.copied {
+      background: #10b981;
+    }
+
+    .info {
+      margin-top: 24px;
+      padding: 16px;
+      background: #fff3cd;
+      border-radius: 10px;
+      font-size: 13px;
+      color: #856404;
+      line-height: 1.6;
+    }
+
+    .info strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .verify-section {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .verify-section h2 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .verify-result {
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 16px;
+      display: none;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .verify-result.show {
+      display: block;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .verify-result.success {
+      background: #d1fae5;
+      color: #065f46;
+      border: 2px solid #10b981;
+    }
+
+    .verify-result.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 2px solid #ef4444;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 24px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .result-value {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔐 Charles License Key Generator</h1>
+      <p>Generate and verify license keys for Charles Proxy</p>
+    </div>
+
+    <div class="form-group">
+      <label for="nameInput">Registered Name</label>
+      <input type="text" id="nameInput" placeholder="Enter your name..." autocomplete="off">
+    </div>
+
+    <div class="button-group">
+      <button class="btn-primary" onclick="generateKey()">Generate License Key</button>
+      <button class="btn-secondary" onclick="clearForm()">Clear</button>
+    </div>
+
+    <div class="result" id="result">
+      <div class="result-label">
+        <span>Generated License Key:</span>
+      </div>
+      <div class="result-value">
+        <span id="licenseKey"></span>
+        <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">Copy</button>
+      </div>
+    </div>
+
+    <div class="info">
+      <strong>ℹ️ Usage Instructions:</strong>
+      1. Enter your name in the field above<br>
+      2. Click "Generate License Key" to create a new key<br>
+      3. Copy the generated key and use it to register Charles Proxy<br>
+      4. Each generation creates a unique valid key
+    </div>
+
+    <div class="verify-section">
+      <h2>🔍 Verify License Key</h2>
+      
+      <div class="form-group">
+        <label for="verifyName">Name</label>
+        <input type="text" id="verifyName" placeholder="Enter name to verify..." autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="verifyKey">License Key</label>
+        <input type="text" id="verifyKey" placeholder="Enter license key..." autocomplete="off" maxlength="18">
+      </div>
+
+      <button class="btn-primary" onclick="verifyKey()" style="width: 100%;">Verify</button>
+
+      <div class="verify-result" id="verifyResult"></div>
+    </div>
+  </div>
+
+  <script src="./bundle.js"></script>
+  <script>
+    window.generateKey = function() {
+      const name = document.getElementById('nameInput').value.trim();
+      
+      if (!name) {
+        alert('Please enter a name!');
+        return;
+      }
+
+      try {
+        const key = CharlesLicense.generateLicenseKey(name);
+        document.getElementById('licenseKey').textContent = key;
+        document.getElementById('result').classList.add('show');
+        document.getElementById('copyBtn').textContent = 'Copy';
+        document.getElementById('copyBtn').classList.remove('copied');
+      } catch (error) {
+        alert('Error generating key: ' + error.message);
+      }
+    };
+
+    window.clearForm = function() {
+      document.getElementById('nameInput').value = '';
+      document.getElementById('result').classList.remove('show');
+      document.getElementById('verifyName').value = '';
+      document.getElementById('verifyKey').value = '';
+      document.getElementById('verifyResult').classList.remove('show');
+    };
+
+    window.copyToClipboard = function() {
+      const key = document.getElementById('licenseKey').textContent;
+      navigator.clipboard.writeText(key).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        alert('Failed to copy: ' + err);
+      });
+    };
+
+    window.verifyKey = function() {
+      const name = document.getElementById('verifyName').value.trim();
+      const key = document.getElementById('verifyKey').value.trim();
+      const resultDiv = document.getElementById('verifyResult');
+
+      if (!name || !key) {
+        alert('Please enter both name and license key!');
+        return;
+      }
+
+      try {
+        const isValid = CharlesLicense.verifyLicenseKey(name, key);
+        resultDiv.classList.remove('success', 'error');
+        
+        if (isValid) {
+          resultDiv.textContent = '✅ Valid! This license key is correct for the given name.';
+          resultDiv.classList.add('success');
+        } else {
+          resultDiv.textContent = '❌ Invalid! This license key does not match the name.';
+          resultDiv.classList.add('error');
+        }
+        
+        resultDiv.classList.add('show');
+      } catch (error) {
+        resultDiv.textContent = '❌ Error: ' + error.message;
+        resultDiv.classList.remove('success');
+        resultDiv.classList.add('error', 'show');
+      }
+    };
+
+    // Allow Enter key to trigger generation
+    document.getElementById('nameInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        window.generateKey();
+      }
+    });
+
+    document.getElementById('verifyKey').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        window.verifyKey();
+      }
+    });
+  </script>
+</body>
+</html>

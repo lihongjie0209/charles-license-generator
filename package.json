@@ -1,0 +1,29 @@
+{
+  "name": "charles-license-generator",
+  "version": "1.0.0",
+  "description": "Charles Proxy license key generator and verifier",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:lib": "tsdown src/index.ts --format esm",
+    "test": "node --import tsx --test src/**/*.test.ts",
+    "dev": "tsdown src/index.ts --watch",
+    "serve": "node server.js",
+    "start": "npm run build && npm run serve"
+  },
+  "keywords": [
+    "charles",
+    "license",
+    "keygen"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "esbuild": "^0.25.11",
+    "tsdown": "^0.2.13",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
